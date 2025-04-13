@@ -36,140 +36,188 @@
       }
       </script>
 
-    <!--style ionic-->
+    <!-- Style -->
     <style>
-        :root {
-          --ion-safe-area-top: 20px;
-          --ion-safe-area-bottom: 22px;
-        }
-      </style>
-      <script type="module">
-        import { menuController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
-        window.menuController = menuController;
-      </script>
-</head>
-<body>
+      :root {
+        --ion-safe-area-top: 20px;
+        --ion-safe-area-bottom: 22px;
+      }
+
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      .alert {
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+      }
+
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .closebtn:hover {
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body>
     <ion-app>
-        <ion-menu side="start" content-id="main-content">
-          <ion-header>
-            <ion-toolbar translucent>
-                <ion-title><strong style="font-size: 1.2em;">🏠 Menù</strong></ion-title>
-              </ion-toolbar>                          
-          </ion-header>
-          <ion-content>
-            <ion-list>
-              <ion-item>
-                <ion-icon name="calculator-outline" slot="start"></ion-icon>
-                <ion-button color="primary" onclick="location.href='parziali.html'">Calcola parziali</ion-button>
-              </ion-item>
-              <ion-item>
-                <ion-icon name="time-outline" slot="start"></ion-icon>
-                <ion-button color="primary" onclick="location.href='sec_ogni100m.html'">Secondi ogni 100</ion-button>
-              </ion-item>
-              <ion-item>
-                <ion-icon name="accessibility-outline" slot="start"></ion-icon>
-                <ion-button color="primary" onclick="location.href='ritmo_al_km.html'">Ritmo al km</ion-button>
-              </ion-item>
-              <ion-item>
-                <ion-icon name="battery-charging-outline" slot="start"></ion-icon>
-                <ion-button color="primary" onclick="location.href='streching.html'">Streching</ion-button>
-              </ion-item>
-              <ion-item>
-                <ion-icon name="alarm-outline" slot="start"></ion-icon>
-                <ion-button color="primary" onclick="location.href='timer.html'">Timer</ion-button>
-              </ion-item>
-              <ion-item>
-                <ion-icon name="speedometer-outline" slot="start"></ion-icon>
-                <ion-button color="primary" onclick="location.href='cronometro.html'">Cronometro</ion-button>
-              </ion-item>
-              <ion-item>
-                <ion-icon name="body-outline" slot="start"></ion-icon>
-                <ion-button color="primary" onclick="location.href='potenziamento.html'">Potenziamento</ion-button>
-              </ion-item>
-              <ion-item>
-                <ion-icon name="pizza-outline" slot="start"></ion-icon>
-                <ion-button color="primary" onclick="location.href='alimentazione.html'">Alimentazione</ion-button>
-              </ion-item>
-              <ion-item>
-                <ion-icon name="images-outline" slot="start"></ion-icon>
-                <ion-button color="primary" onclick="location.href='gallery.html'">Gallery</ion-button>
-              </ion-item>
-              <ion-item>
-                <ion-icon name="calculator-outline" slot="start"></ion-icon>
-                <ion-button color="primary" onclick="location.href='calcolatore_universale.html'">calcolatore universale </ion-button>
-              </ion-item>
-            </ion-list>
-          </ion-content>
-        </ion-menu>
+      <div class="ion-page" id="main-content">
+        <ion-header></ion-header>
+        <ion-content class="ion-padding">
+          <!-- ALERT -->
+          <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Attenzione!</strong> Se vuoi trovare altri intertempi, premi il pulsante reset.
+          </div>
 
-        <div class="ion-page" id="main-content">
-          <ion-header>
-            <ion-toolbar>
-              <ion-buttons slot="start">
-                <ion-menu-button></ion-menu-button>
-              </ion-buttons>
-              <ion-title><!--Inserire la parola desiderata di fianco alle 3 lineette del menù--></ion-title>
-            </ion-toolbar>
-          </ion-header>
-          <ion-content class="ion-padding">
-            
-            <br>
-            <ion-card>
-              <img src="images/intro_atl.jpg" />
-              <ion-card-header>
-                <ion-card-subtitle>Storia</ion-card-subtitle>
-                <ion-card-title>Atletica leggera</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                L’atletica leggera ebbe origine in Grecia; le statue, le pitture sui vasi, i poemi omerici 
-                ne testimoniano la pratica come passione sportiva. le gare di atletica venivano svolte durante 
-                la celebrazione di feste religiose, dal vincitore prendeva nome l’anno della gara. 
-                Tra i giochi più famosi abbiamo le “Olimpiadi”, che si svolgevano ad Olimpia ogni quattro 
-                anni in onore di Zeus; i giochi avevano una durata inizialmente di tre e successivamente di 
-                cinque giorni. Inizialmente ai giochi potevano solo partecipare uomini ritenuti di una certa 
-                importanza in modo tale da poter diventare un riferimento cronologico per datare i fatti storici; 
-                il vincitore veniva premiato con una corona di alloro o ulivo.
-              </ion-card-content>
-              <ion-card-header>
-                <ion-card-title>Mezzofondo</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                Il mezzofondo è un termine con il quale si indicano, in varie discipline sportive, 
-                le competizioni che si svolgono su una certa distanza, usualmente di lunghezza superiore 
-                alle gare cosiddette veloci, ma inferiore a quelle tipiche del fondo. <br>
-                Nell'atletica leggera si distinguono solitamente il mezzofondo veloce (800 m, 1500 m, miglio), 
-                il mezzofondo puro (3000 m, 3000 m siepi) e il mezzofondo prolungato (5000 m, 10000 m).
-              </ion-card-content>
-            </ion-card>
-          </ion-content>
-        </div>
-      </ion-app>
-  
-      <script>
-        async function openMenu() {
-          await menuController.open();
+          <!-- FORM -->
+          <div>
+            <h2>Programma per calcolare gli intertempi</h2><br />
+            <form action="/action_page.php" name="form1">
+              <label for="fname">Metri</label>
+              <input type="text" id="fname" name="metri" placeholder="Inserisci metri totali.." />
+
+              <label for="lname">Secondi</label>
+              <input type="text" id="lname" name="secondi" placeholder="In quanti secondi ogni 100?" />
+
+              <!-- NUOVI INPUT -->
+              <label for="minPerKm">Minuti al km</label>
+              <input type="text" id="minPerKm" placeholder="Inserisci i minuti per km.." />
+
+              <label for="secPerKm">Secondi al km</label>
+              <input type="text" id="secPerKm" placeholder="Inserisci i secondi per km.." />
+
+              <!-- RISULTATO 100M -->
+              <p id="output100m" style="font-weight: bold; margin-top: 10px;"></p>
+
+              <!-- OUTPUT PARZIALI -->
+              <p id="demo"></p>
+
+              <!-- BOTTONI -->
+              <ion-button expand="block" color="success" onclick="stampa()">Invia</ion-button>
+              <ion-button expand="block" color="danger" onclick="reset()">Reset</ion-button>
+              <ion-button expand="block" color="medium" onclick="calcola100m()">Calcola 100m da passo/km</ion-button>
+            </form>
+          </div>
+        </ion-content>
+      </div>
+    </ion-app>
+
+    <!-- SCRIPT PARZIALI -->
+    <script>
+      var metri, secondi, metri2, tempo, x;
+      var y;
+      var cont = 1;
+      function stampa() {
+        metri = document.form1.metri.value;
+        secondi = document.form1.secondi.value;
+        metri2 = metri / 100;
+        let text = "";
+        for (; cont <= metri2; ) {
+          tempo = secondi * cont;
+          x = tempo % 60;
+          let min = Math.floor(tempo / 60);
+          tempo = min + "' " + x.toFixed(0) + '"';
+          cont++;
+          y = 100 * cont - 100;
+          text += "Al " + y + " passaggio in " + tempo + "<br>";
         }
-      </script>
+        document.getElementById("demo").innerHTML = text;
+      }
+    </script>
 
-            <!--script per il service worker-->
-            <script>
-              window.addEventListener('load', () => {
-              registerSW();
-              });
-            
-              // Register the Service Worker
-              async function registerSW() {
-              if ('serviceWorker' in navigator) {
-                try {
-                await navigator
-                    .serviceWorker
-                    .register('serviceworker.js');
-                }
-                catch (e) {
-                console.log('SW registration failed');
-                }
-              }
-              }
-            </script>
-</body>
+    <!-- SCRIPT RESET -->
+    <script>
+      function reset() {
+        document.form1.metri.value = "";
+        document.form1.secondi.value = "";
+        document.getElementById("minPerKm").value = "";
+        document.getElementById("secPerKm").value = "";
+        document.getElementById("output100m").innerHTML = "";
+        cont = 1;
+        document.getElementById("demo").innerHTML = "";
+      }
+    </script>
+
+    <!-- SCRIPT CALCOLO 100M -->
+    <script>
+      function calcola100m() {
+        const min = parseInt(document.getElementById("minPerKm").value) || 0;
+        const sec = parseInt(document.getElementById("secPerKm").value) || 0;
+
+        const totalSecPerKm = min * 60 + sec;
+        const secPer100m = totalSecPerKm / 10;
+
+        document.getElementById("output100m").innerText =
+          "Ogni 100 metri devi correre in " + secPer100m.toFixed(1) + " secondi.";
+      }
+    </script>
+
+    <!-- MENU IONIC -->
+    <script>
+      async function openMenu() {
+        await menuController.open();
+      }
+    </script>
+
+                <!--script per il service worker-->
+                <script>
+                  window.addEventListener('load', () => {
+                  registerSW();
+                  });
+                
+                  // Register the Service Worker
+                  async function registerSW() {
+                  if ('serviceWorker' in navigator) {
+                    try {
+                    await navigator
+                        .serviceWorker
+                        .register('serviceworker.js');
+                    }
+                    catch (e) {
+                    console.log('SW registration failed');
+                    }
+                  }
+                  }
+                </script>
+  </body>
 </html>
