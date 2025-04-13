@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calcola parziali</title>
+        <!--script per attivare ionic-->
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+        <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+        <!--style ionic-->
+        <style>
+            :root {
+            --ion-safe-area-top: 20px;
+            --ion-safe-area-bottom: 22px;
+            }
+        </style>
+        <script type="module">
+            import { menuController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+            window.menuController = menuController;
+        </script>
+    </head>
+
+    <body>
+        <ion-app>
+            <ion-menu side="start" content-id="main-content">
+              <ion-header>
+                <ion-toolbar translucent>
+                  <ion-title>Menù</ion-title>
+                </ion-toolbar>
+              </ion-header>
+              <ion-content>
+                <ion-list>
+                  <ion-item>
+                    <ion-icon name="calculator-outline" slot="start"></ion-icon>
+                    <ion-button color="primary" onclick="location.href='parziali.html'">Calcola parziali</ion-button>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="time-outline" slot="start"></ion-icon>
+                    <ion-button color="primary" onclick="location.href='sec_ogni100m.html'">Secondi ogni 100</ion-button>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="accessibility-outline" slot="start"></ion-icon>
+                    <ion-button color="primary" onclick="location.href='ritmo_al_km.html'">Ritmo al km</ion-button>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="battery-charging-outline" slot="start"></ion-icon>
+                    <ion-button color="primary" onclick="location.href='streching.html'">Streching</ion-button>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="alarm-outline" slot="start"></ion-icon>
+                    <ion-button color="primary" onclick="location.href='timer.html'">Timer</ion-button>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="speedometer-outline" slot="start"></ion-icon>
+                    <ion-button color="primary" onclick="location.href='cronometro.html'">Cronometro</ion-button>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="body-outline" slot="start"></ion-icon>
+                    <ion-button color="primary" onclick="location.href='potenziamento.html'">Potenziamento</ion-button>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="pizza-outline" slot="start"></ion-icon>
+                    <ion-button color="primary" onclick="location.href='alimentazione.html'">Alimentazione</ion-button>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="images-outline" slot="start"></ion-icon>
+                    <ion-button color="primary" onclick="location.href='gallery.html'">Gallery</ion-button>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="calculator-outline" slot="start"></ion-icon>
+                    <ion-button color="primary" onclick="location.href='calcolatore_universale.html'">calcolatore universale </ion-button>
+                  </ion-item>
+                </ion-list>
+              </ion-content>
+            </ion-menu>
+      
+            <div class="ion-page" id="main-content">
+              <ion-header>
+                <ion-toolbar>
+                  <ion-buttons slot="start">
+                    <ion-menu-button></ion-menu-button>
+                  </ion-buttons>
+                  <ion-button color="medium" onclick="location.href='index.html'">Back</ion-button>
+                </ion-toolbar>
+              </ion-header>
+              <ion-content class="ion-padding">
+                <!--qui codice-->
+              </ion-content>
+            </div>
+          </ion-app>
+        <script>
+            async function openMenu() {
+              await menuController.open();
+            }
+          </script>
+    </body>
+</html>

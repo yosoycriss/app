@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--codice con tag meta utile per PWA-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--titolo-->
+    <title>Home</title>
+    <!--script per attivare ionic-->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <!-- Meta Tags required for
+       Progressive Web App -->
+    <meta name=
+    "apple-mobile-web-app-status-bar"
+          content="#aa7700">
+    <meta name="theme-color"
+          content="black">
+  
+    <!-- Manifest File link -->
+    <link rel="manifest"
+          href="manifest.json">
+
+    <!--richiamo sw.js per far funzionare la pwa offline-->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/serviceworker.js')
+        .then(function(registration) {
+          console.log('Registration successful, scope is:', registration.scope);
+        })
+        .catch(function(error) {
+          console.log('Service worker registration failed, error:', error);
+        });
+      }
+      </script>
+
+    <!--style ionic-->
+    <style>
+        :root {
+          --ion-safe-area-top: 20px;
+          --ion-safe-area-bottom: 22px;
+        }
+      </style>
+      <script type="module">
+        import { menuController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+        window.menuController = menuController;
+      </script>
+</head>
+<body>
+    <ion-app>
+        <ion-menu side="start" content-id="main-content">
+          <ion-header>
+            <ion-toolbar translucent>
+                <ion-title><strong style="font-size: 1.2em;">🏠 Menù</strong></ion-title>
+              </ion-toolbar>                          
+          </ion-header>
+          <ion-content>
+            <ion-list>
+              <ion-item>
+                <ion-icon name="calculator-outline" slot="start"></ion-icon>
+                <ion-button color="primary" onclick="location.href='parziali.html'">Calcola parziali</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="time-outline" slot="start"></ion-icon>
+                <ion-button color="primary" onclick="location.href='sec_ogni100m.html'">Secondi ogni 100</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="accessibility-outline" slot="start"></ion-icon>
+                <ion-button color="primary" onclick="location.href='ritmo_al_km.html'">Ritmo al km</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="battery-charging-outline" slot="start"></ion-icon>
+                <ion-button color="primary" onclick="location.href='streching.html'">Streching</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="alarm-outline" slot="start"></ion-icon>
+                <ion-button color="primary" onclick="location.href='timer.html'">Timer</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="speedometer-outline" slot="start"></ion-icon>
+                <ion-button color="primary" onclick="location.href='cronometro.html'">Cronometro</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="body-outline" slot="start"></ion-icon>
+                <ion-button color="primary" onclick="location.href='potenziamento.html'">Potenziamento</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="pizza-outline" slot="start"></ion-icon>
+                <ion-button color="primary" onclick="location.href='alimentazione.html'">Alimentazione</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="images-outline" slot="start"></ion-icon>
+                <ion-button color="primary" onclick="location.href='gallery.html'">Gallery</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="calculator-outline" slot="start"></ion-icon>
+                <ion-button color="primary" onclick="location.href='calcolatore_universale.html'">calcolatore universale </ion-button>
+              </ion-item>
+            </ion-list>
+          </ion-content>
+        </ion-menu>
+
+        <div class="ion-page" id="main-content">
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+              </ion-buttons>
+              <ion-title><!--Inserire la parola desiderata di fianco alle 3 lineette del menù--></ion-title>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            
+            <br>
+            <ion-card>
+              <img src="images/intro_atl.jpg" />
+              <ion-card-header>
+                <ion-card-subtitle>Storia</ion-card-subtitle>
+                <ion-card-title>Atletica leggera</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                L’atletica leggera ebbe origine in Grecia; le statue, le pitture sui vasi, i poemi omerici 
+                ne testimoniano la pratica come passione sportiva. le gare di atletica venivano svolte durante 
+                la celebrazione di feste religiose, dal vincitore prendeva nome l’anno della gara. 
+                Tra i giochi più famosi abbiamo le “Olimpiadi”, che si svolgevano ad Olimpia ogni quattro 
+                anni in onore di Zeus; i giochi avevano una durata inizialmente di tre e successivamente di 
+                cinque giorni. Inizialmente ai giochi potevano solo partecipare uomini ritenuti di una certa 
+                importanza in modo tale da poter diventare un riferimento cronologico per datare i fatti storici; 
+                il vincitore veniva premiato con una corona di alloro o ulivo.
+              </ion-card-content>
+              <ion-card-header>
+                <ion-card-title>Mezzofondo</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Il mezzofondo è un termine con il quale si indicano, in varie discipline sportive, 
+                le competizioni che si svolgono su una certa distanza, usualmente di lunghezza superiore 
+                alle gare cosiddette veloci, ma inferiore a quelle tipiche del fondo. <br>
+                Nell'atletica leggera si distinguono solitamente il mezzofondo veloce (800 m, 1500 m, miglio), 
+                il mezzofondo puro (3000 m, 3000 m siepi) e il mezzofondo prolungato (5000 m, 10000 m).
+              </ion-card-content>
+            </ion-card>
+          </ion-content>
+        </div>
+      </ion-app>
+  
+      <script>
+        async function openMenu() {
+          await menuController.open();
+        }
+      </script>
+
+            <!--script per il service worker-->
+            <script>
+              window.addEventListener('load', () => {
+              registerSW();
+              });
+            
+              // Register the Service Worker
+              async function registerSW() {
+              if ('serviceWorker' in navigator) {
+                try {
+                await navigator
+                    .serviceWorker
+                    .register('serviceworker.js');
+                }
+                catch (e) {
+                console.log('SW registration failed');
+                }
+              }
+              }
+            </script>
+</body>
+</html>

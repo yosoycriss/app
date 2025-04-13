@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <!--script per attivare ionic-->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <!--style ionic-->
+    <style>
+        :root {
+            --ion-safe-area-top: 20px;
+            --ion-safe-area-bottom: 22px;
+        }
+    </style>
+    <script type="module">
+        import { menuController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+        window.menuController = menuController;
+    </script>
+    <!--style del cronometro-->
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1, h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #e6e6e6;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #timer {
+            font-size: 4rem;
+            margin: 20px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 15px 25px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #ff6b6b;
+            color: #fff;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background-color: #ee5253;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            max-width: 300px;
+            width: 100%;
+            text-align: left;
+        }
+
+        li {
+            font-size: 1.2rem;
+            margin: 5px 0;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <ion-app>
+        <ion-menu side="start" content-id="main-content">
+            <ion-header>
+                <ion-toolbar translucent>
+                    <ion-title>Menù</ion-title>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content>
+                <ion-list>
+                    <ion-item>
+                        <ion-icon name="calculator-outline" slot="start"></ion-icon>
+                        <ion-button color="primary" onclick="location.href='parziali.html'">Calcola parziali</ion-button>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="time-outline" slot="start"></ion-icon>
+                        <ion-button color="primary" onclick="location.href='sec_ogni100m.html'">Secondi ogni 100</ion-button>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="accessibility-outline" slot="start"></ion-icon>
+                        <ion-button color="primary" onclick="location.href='ritmo_al_km.html'">Ritmo al km</ion-button>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="battery-charging-outline" slot="start"></ion-icon>
+                        <ion-button color="primary" onclick="location.href='streching.html'">Streching</ion-item>
+                    <ion-item>
+                        <ion-icon name="alarm-outline" slot="start"></ion-icon>
+                        <ion-button color="primary" onclick="location.href='timer.html'">Timer</ion-button>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="speedometer-outline" slot="start"></ion-icon>
+                        <ion-button color="primary" onclick="location.href='cronometro.html'">Cronometro</ion-button>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="body-outline" slot="start"></ion-icon>
+                        <ion-button color="primary" onclick="location.href='potenziamento.html'">Potenziamento</ion-button>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="pizza-outline" slot="start"></ion-icon>
+                        <ion-button color="primary" onclick="location.href='alimentazione.html'">Alimentazione</ion-button>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="images-outline" slot="start"></ion-icon>
+                        <ion-button color="primary" onclick="location.href='gallery.html'">Gallery</ion-button>
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="calculator-outline" slot="start"></ion-icon>
+                        <ion-button color="primary" onclick="location.href='calcolatore_universale.html'">calcolatore universale</ion-button>
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+
+        <div class="ion-page" id="main-content">
+            <ion-header>
+                <ion-toolbar>
+                    <ion-buttons slot="start">
+                        <ion-menu-button></ion-menu-button>
+                        <ion-button color="medium" onclick="location.href='index.html'">Back</ion-button>
+                    </ion-buttons> 
+                </ion-toolbar>
+            </ion-header>
+            <ion-content class="ion-padding">
+                <h2>Cronometro</h2>
+                <div id="timer">00:00:00.0</div>
+                <button id="startButton">Avvia</button>
+                <button id="stopButton">Ferma</button>
+                <button id="resetButton">Resetta</button>
+                <button id="lapButton">Intertempo</button>
+                <ul id="lapList"></ul>
+            </ion-content>
+        </div>
+    </ion-app>
+
+    <script>
+        let timerInterval;
+        let startTime;
+        let isRunning = false;
+        let pausedTime = 0;
+        let lapTimes = [];
+
+        function startTimer() {
+            if (!isRunning) {
+                isRunning = true;
+                startTime = Date.now() - pausedTime;
+                timerInterval = setInterval(updateTimer, 10);
+            }
+        }
+
+        function stopTimer() {
+            if (isRunning) {
+                isRunning = false;
+                clearInterval(timerInterval);
+                pausedTime = Date.now() - startTime;
+            }
+        }
+
+        function resetTimer() {
+            stopTimer();
+            pausedTime = 0;
+            lapTimes = [];
+            updateTimerDisplay(0);
+            updateLapList();
+        }
+
+        function recordLap() {
+            if (isRunning) {
+                const currentTime = Date.now() - startTime;
+                lapTimes.push(currentTime);
+                updateLapList();
+            }
+        }
+
+        function updateTimer() {
+            const currentTime = Date.now() - startTime;
+            updateTimerDisplay(currentTime);
+        }
+
+        function updateTimerDisplay(time) {
+            const hours = Math.floor(time / 3600000);
+            const minutes = Math.floor((time % 3600000) / 60000);
+            const seconds = Math.floor((time % 60000) / 1000);
+            const tenths = Math.floor((time % 1000) / 100);
+            const centesimi = Math.floor((time % 100) / 10);
+            const timeString = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${tenths}${centesimi}`;
+            document.getElementById('timer').textContent = timeString;
+        }
+
+        function updateLapList() {
+            const lapList = document.getElementById('lapList');
+            lapList.innerHTML = '';
+
+            for (let i = 0; i < lapTimes.length; i++) {
+                const lapTime = lapTimes[i];
+                const listItem = document.createElement('li');
+                const hours = Math.floor(lapTime / 3600000);
+                const minutes = Math.floor((lapTime % 3600000) / 60000);
+                const seconds = Math.floor((lapTime % 60000) / 1000);
+                const tenths = Math.floor((lapTime % 1000) / 100);
+                const centesimi = Math.floor((lapTime % 100) / 10);
+                const lapTimeString = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${tenths}${centesimi}`;
+                listItem.textContent = `Intertempo ${i + 1}: ${lapTimeString}`;
+                lapList.appendChild(listItem);
+            }
+        }
+
+        document.getElementById('startButton').addEventListener('click', startTimer);
+        document.getElementById('stopButton').addEventListener('click', stopTimer);
+        document.getElementById('resetButton').addEventListener('click', resetTimer);
+        document.getElementById('lapButton').addEventListener('click', recordLap);
+    </script>
+</body>
+</html>
